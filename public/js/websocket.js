@@ -78,7 +78,7 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
 
   ws.onmessage = function(evt) {
     var data = JSON.parse(evt.data);
-		console.log(evt.data)
+		// console.log(evt.data)
 		if(typeof(data.total) != "undefined") {
       totalGraph.drawLogPath(data.total);
     }
