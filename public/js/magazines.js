@@ -11,7 +11,7 @@ Hummingbird.getMagazines = function() {
 		var editorialImage = "public/images/" + this.key + ".png";
 		var name = this.name;
 
-		var magDiv = $("<div id='mag_" + this.key + "' data-id='" + this.key + "' class='sale'></div>");
+		var magDiv = $("<div id='mag_" + this.key + "' data-id='" + this.key + "' class='magazine'></div>");
 		magDiv.append("<img class='editorial' src='" + editorialImage + "'/>");
 		// magDiv.append("<h2>" + name + "</h2>");
 
@@ -21,7 +21,7 @@ Hummingbird.getMagazines = function() {
 		var canvas = $("<canvas width='185' height='70'></canvas>");
 		graph.append(canvas);
 		magDiv.append(graph);
-		$("#sales").append(magDiv);
+		$("#magazines").append(magDiv);
 		var magGraph = new Hummingbird.Graph(graph, { ratePerSecond: 2, initialScope: 200, backgroundImage: editorialImage, showBackgroundBars: false });
 		Hummingbird.magGraphs[this.key] = magGraph;
 	});
@@ -31,6 +31,6 @@ Hummingbird.getMagazines = function() {
 	var extraSpace = canvasWidth % 190;
 	var extraSpacePerSale = (extraSpace + 10) / (magsPerRow - 1);
 
-	$("#sales div.sale").css({marginRight: extraSpacePerSale + 10});
+	$("#magazines div.magazine").css({marginRight: extraSpacePerSale + 10});
 	$("body").css({minWidth: $("#log").width()});
 };

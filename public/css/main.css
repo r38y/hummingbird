@@ -53,11 +53,11 @@ div.hummingbird_graph div.axis_right {
   line-height: 0.3em;
 }
 
-#sales {
+#magazines {
   margin-left: 60px;
 }
 
-#sales div.sale {
+#magazines div.magazine {
   float: left;
   width: 180px;
   height: 100px;
@@ -66,14 +66,14 @@ div.hummingbird_graph div.axis_right {
   position: relative;
 }
 
-#sales div.sale div.hummingbird_graph {
+#magazines div.magazine div.hummingbird_graph {
   position: absolute;
   top: -6px;
   left: 10px;
   width: 180px;
 }
 
-#sales div.sale div.hummingbird_graph div.req_s {
+#magazines div.magazine div.hummingbird_graph div.req_s {
   position: absolute;
   top: 15px;
   left: -10px;
@@ -86,19 +86,19 @@ div.hummingbird_graph div.axis_right {
   -webkit-border-bottom-right-radius: 5px;
 }
 
-#sales div.sale img {
+#magazines div.magazine img {
   opacity: 0.5;
 }
 
-#sales div.sale div.axis_right {
+#magazines div.magazine div.axis_right {
   float: left;
 }
 
-#sales div.sale div.axis_left {
+#magazines div.magazine div.axis_left {
   display: none;
 }
 
-#sales div.sale h2 {
+#magazines div.magazine h2 {
   color: #CCC;
   font-size: 0.7em;
   height: 2.4em;
@@ -108,7 +108,7 @@ div.hummingbird_graph div.axis_right {
   right: 0;
 }
 
-#sales div.sale img.editorial {
+#magazines div.magazine img.editorial {
   width: 180px;
 	height: 70px;
 	vertical-align: middle;
