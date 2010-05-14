@@ -71,9 +71,9 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
   totalDiv.find('canvas').get(0).width = $(window).width() - 160;
   var totalGraph = new Hummingbird.Graph(totalDiv, { ratePerSecond: 20, logDate: true });
 
-  var cartAdds = $("#cart_adds");;
-  cartAdds.find('canvas').get(0).width = $(window).width() - 160;
-  var cartAddsGraph = new Hummingbird.Graph(cartAdds, { ratePerSecond: 20 });
+  // var cartAdds = $("#cart_adds");;
+  // cartAdds.find('canvas').get(0).width = $(window).width() - 160;
+  // var cartAddsGraph = new Hummingbird.Graph(cartAdds, { ratePerSecond: 20 });
 
   var wsServer = this.webSocketURI();
   var ws = new WebSocket(wsServer);
@@ -107,33 +107,33 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
 
 // WEEKLY WEBSOCKET
 
-Hummingbird.WebSocket.Weekly = function() { }
-Hummingbird.WebSocket.Weekly.prototype = new Hummingbird.WebSocket;
-
-Hummingbird.WebSocket.Weekly.prototype.start = function() {
-  if (!this.webSocketEnabled())
-    return;
-
-  var wsServer = this.webSocketURI();
-  var ws = new WebSocket(wsServer);
-
-  var self = this;
-
-  ws.onmessage = function(evt) {
-    var data = JSON.parse(evt.data);
-    if(data.total && data.total > 0) {
-      var el = $("div.day:first-child div.all_views");
-      var prevTotal = el.data("total");
-      el.text((prevTotal + data.total).commify()).data('total', prevTotal + data.total);
-    }
-    if(data.cartAdds && data.cartAdds > 0) {
-      var el = $("div.day:first-child div.cart_adds");
-      var prevCartAdds = el.data("cart_adds");
-      el.text((prevCartAdds + data.cartAdds).commify()).data('cart_adds', prevCartAdds + data.cartAdds);
-    }
-  };
-
-  ws.onclose = function() { self.onclose(); }
-  ws.onopen = function() { self.onopen(); }
-}
-
+// Hummingbird.WebSocket.Weekly = function() { }
+// Hummingbird.WebSocket.Weekly.prototype = new Hummingbird.WebSocket;
+// 
+// Hummingbird.WebSocket.Weekly.prototype.start = function() {
+//   if (!this.webSocketEnabled())
+//     return;
+// 
+//   var wsServer = this.webSocketURI();
+//   var ws = new WebSocket(wsServer);
+// 
+//   var self = this;
+// 
+//   ws.onmessage = function(evt) {
+//     var data = JSON.parse(evt.data);
+//     if(data.total && data.total > 0) {
+//       var el = $("div.day:first-child div.all_views");
+//       var prevTotal = el.data("total");
+//       el.text((prevTotal + data.total).commify()).data('total', prevTotal + data.total);
+//     }
+//     if(data.cartAdds && data.cartAdds > 0) {
+//       var el = $("div.day:first-child div.cart_adds");
+//       var prevCartAdds = el.data("cart_adds");
+//       el.text((prevCartAdds + data.cartAdds).commify()).data('cart_adds', prevCartAdds + data.cartAdds);
+//     }
+//   };
+// 
+//   ws.onclose = function() { self.onclose(); }
+//   ws.onopen = function() { self.onopen(); }
+// }
+// 
