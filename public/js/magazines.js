@@ -8,11 +8,12 @@ Hummingbird.getMagazines = function() {
 									 {sld: "mmm-mag", name: "MMM Magazine", key: 'mmm'},
 									 {sld: "quizfest", name: "Quizfest", key: 'qf'}];
 	$.each(magazines, function() {
-		var editorialImage = "";
+		var editorialImage = "public/images/" + this.key + ".png";
 		var name = this.name;
 
 		var magDiv = $("<div id='mag_" + this.key + "' data-id='" + this.key + "' class='sale'></div>");
-		magDiv.append("<h2>" + name + "</h2>");
+		magDiv.append("<img class='editorial' src='" + editorialImage + "'/>");
+		// magDiv.append("<h2>" + name + "</h2>");
 
 		var graph = $("<div class='hummingbird_graph'></div>");
 		graph.append("<div class='req_s'><span class='value'>0</span> pages/sec</div>");

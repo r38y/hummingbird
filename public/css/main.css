@@ -103,10 +103,15 @@ div.hummingbird_graph div.axis_right {
   font-size: 0.7em;
   height: 2.4em;
   overflow: hidden;
+  position: absolute;
+  top: 15px;
+  right: 0;
 }
 
 #sales div.sale img.editorial {
   width: 180px;
+	height: 70px;
+	vertical-align: middle;
 }
 
 /* Fonts */

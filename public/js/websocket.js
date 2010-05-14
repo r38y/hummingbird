@@ -83,7 +83,6 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
     }
 		$.each(Hummingbird.magGraphs, function(key) {
       if(typeof(data.magazines) != "undefined" && typeof(data.magazines[key]) != "undefined") {
-				console.log(key + ": " + data.magazines[key])
         Hummingbird.magGraphs[key].drawLogPath(data.magazines[key]);
       } else {
         Hummingbird.magGraphs[key].drawLogPath(0.0);
