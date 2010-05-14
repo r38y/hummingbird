@@ -71,14 +71,6 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
   totalDiv.find('canvas').get(0).width = $(window).width() - 160;
   var totalGraph = new Hummingbird.Graph(totalDiv, { ratePerSecond: 20, logDate: true });
 
-  var j14Div = $("#j14");
-  // j14Div.find('canvas').get(0).width = $(window).width() - 160;
-  var j14Graph = new Hummingbird.Graph(j14Div, { ratePerSecond: 20, logDate: true });
-
-  var quizfestDiv = $("#quizfest");
-  // quizfestDiv.find('canvas').get(0).width = $(window).width() - 160;
-  var quizfestGraph = new Hummingbird.Graph(quizfestDiv, { ratePerSecond: 20, logDate: true });
-
   var wsServer = this.webSocketURI();
   var ws = new WebSocket(wsServer);
 
@@ -89,14 +81,14 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
 		if(typeof(data.total) != "undefined") {
       totalGraph.drawLogPath(data.total);
     }
-
-		if(typeof(data.j14) != "undefined") {
-      j14Graph.drawLogPath(data.j14);
-    }
-
-		if(typeof(data.quizfest) != "undefined") {
-      quizfestGraph.drawLogPath(data.quizfest);
-    }
+		$.each(Hummingbird.magGraphs, function(key) {
+      if(data[key]) {
+				console.log(key + ": " + data[key])
+        Hummingbird.magGraphs[key].drawLogPath(data[key]);
+      } else {
+        Hummingbird.magGraphs[key].drawLogPath(0.0);
+      }
+    });
   }
 
   ws.onclose = function() { self.onclose(); }

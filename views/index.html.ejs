@@ -12,27 +12,12 @@
 
 	<div style="clear: both;"></div>
 
-  <div class="hummingbird_graph" id="j14">
-
-    <h2><span class="value">0</span>/s J-14</h2>
-
-    <canvas width="300" height="100"></canvas>
-
-  </div>
-
-	<div style="clear: both;"></div>
-
-  <div class="hummingbird_graph" id="quizfest">
-
-    <h2><span class="value">0</span>/s Quizfest</h2>
-
-    <canvas width="300" height="100"></canvas>
-
-  </div>
+  <div id="sales"></div>
 
   <script>
     $(document).ready(function() {
       var hummingSocket = new Hummingbird.WebSocket.Dashboard();
+			Hummingbird.getMagazines();
       hummingSocket.start();
     });
   </script>
