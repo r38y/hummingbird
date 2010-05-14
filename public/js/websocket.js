@@ -75,6 +75,10 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
   j14Div.find('canvas').get(0).width = $(window).width() - 160;
   var j14Graph = new Hummingbird.Graph(j14Div, { ratePerSecond: 20, logDate: true });
 
+  var quizfestDiv = $("#quizfest");
+  quizfestDiv.find('canvas').get(0).width = $(window).width() - 160;
+  var quizfestGraph = new Hummingbird.Graph(quizfestDiv, { ratePerSecond: 20, logDate: true });
+
   var wsServer = this.webSocketURI();
   var ws = new WebSocket(wsServer);
 
@@ -88,6 +92,10 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
 
 		if(typeof(data.j14) != "undefined") {
       j14Graph.drawLogPath(data.j14);
+    }
+
+		if(typeof(data.quizfest) != "undefined") {
+      quizfestGraph.drawLogPath(data.quizfest);
     }
   }
 
