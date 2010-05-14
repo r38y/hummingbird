@@ -88,6 +88,14 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
         Hummingbird.magGraphs[key].drawLogPath(0.0);
       }
     });
+		
+		$.each(Hummingbird.siteGraphs, function(key) {
+      if(typeof(data.sites) != "undefined" && typeof(data.sites[key]) != "undefined") {
+        Hummingbird.siteGraphs[key].drawLogPath(data.sites[key]);
+      } else {
+        Hummingbird.siteGraphs[key].drawLogPath(0.0);
+      }
+    });
   }
 
   ws.onclose = function() { self.onclose(); }
