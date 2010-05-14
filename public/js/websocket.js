@@ -72,11 +72,11 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
   var totalGraph = new Hummingbird.Graph(totalDiv, { ratePerSecond: 20, logDate: true });
 
   var j14Div = $("#j14");
-  j14Div.find('canvas').get(0).width = $(window).width() - 160;
+  // j14Div.find('canvas').get(0).width = $(window).width() - 160;
   var j14Graph = new Hummingbird.Graph(j14Div, { ratePerSecond: 20, logDate: true });
 
   var quizfestDiv = $("#quizfest");
-  quizfestDiv.find('canvas').get(0).width = $(window).width() - 160;
+  // quizfestDiv.find('canvas').get(0).width = $(window).width() - 160;
   var quizfestGraph = new Hummingbird.Graph(quizfestDiv, { ratePerSecond: 20, logDate: true });
 
   var wsServer = this.webSocketURI();
