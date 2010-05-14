@@ -71,10 +71,6 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
   totalDiv.find('canvas').get(0).width = $(window).width() - 160;
   var totalGraph = new Hummingbird.Graph(totalDiv, { ratePerSecond: 20, logDate: true });
 
-  // var cartAdds = $("#cart_adds");;
-  // cartAdds.find('canvas').get(0).width = $(window).width() - 160;
-  // var cartAddsGraph = new Hummingbird.Graph(cartAdds, { ratePerSecond: 20 });
-
   var wsServer = this.webSocketURI();
   var ws = new WebSocket(wsServer);
 
@@ -82,22 +78,9 @@ Hummingbird.WebSocket.Dashboard.prototype.start = function() {
 
   ws.onmessage = function(evt) {
     var data = JSON.parse(evt.data);
-
-    if(typeof(data.sales) != "undefined") {
-      $.each(Hummingbird.saleGraphs, function(key) {
-        if(data.sales[key]) {
-          Hummingbird.saleGraphs[key].drawLogPath(data.sales[key]);
-        } else {
-          Hummingbird.saleGraphs[key].drawLogPath(0.0);
-        }
-      });
-    } else if(typeof(data.total) != "undefined") {
+		console.log(evt.data)
+		if(typeof(data.total) != "undefined") {
       totalGraph.drawLogPath(data.total);
-      if(data.cartAdds) {
-        cartAddsGraph.drawLogPath(data.cartAdds);
-      } else {
-        cartAddsGraph.drawLogPath(0.0);
-      }
     }
   }
 
