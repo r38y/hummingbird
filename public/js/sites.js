@@ -3,7 +3,7 @@ if(!Hummingbird) { var Hummingbird = {}; }
 Hummingbird.siteGraphs = {};
 
 Hummingbird.getSites = function() {
-	var sites = ['inquizzitor', 'polls', 'winit', 'editorial'];
+	var sites = ['inquizzitor', 'pollvault', 'winit', 'editorial'];
 	$.each(sites, function() {
 		var name = this;
 
